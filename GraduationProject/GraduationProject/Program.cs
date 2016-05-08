@@ -12,11 +12,7 @@ using System.IO;
 namespace GraduationProject
 {
     class Program
-    {
-
-        /*  Trying Github extension for VS */
-
-
+    { 
         private static int framesCount = 0; 
 
         // Active Kinect sensor
