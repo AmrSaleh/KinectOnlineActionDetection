@@ -10,6 +10,9 @@ This project is implemented by (in Alphabetical order)
 4- Bassem Mohamed Abdelmoneim
 5- Mohamed Hassan Khames
 
+This is our graduation project and our supervisor is
+Dr.Mohamed Bassiouny
+
 This implementation is based on the paper
 ==========================================
 [Linear-time Online Action Detection From 3D Skeletal Data Using Bags of Gesturelets]
