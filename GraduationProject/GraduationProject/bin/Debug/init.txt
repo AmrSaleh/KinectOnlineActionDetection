@@ -1,0 +1,11 @@
+Number of actions,20
+Number of clusters,1500
+number of bins,3
+K nearest neighbour,3
+scale,2
+score scale,1
+k online latency,1
+minimum detection length,10
+Weights of actions file path,actions_classifier_weights.txt
+Thresholds if actions,thresholds.txt
+Code book path,CodeBook.txt
