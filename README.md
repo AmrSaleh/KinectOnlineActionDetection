@@ -8,9 +8,13 @@ We used "MSR Action3D Dataset" in the training phase. So, the program can detect
 This project is implemented by (in Alphabetical order)
 ======================================================
 1- Abdelrahman Ali Morgan
+
 2- Abd-Elrahman Amir Elessawy
+
 3- Amr Saleh Mohamed Aly
+
 4- Bassem Mohamed Abdelmoneim
+
 5- Mohamed Hassan Khames
 
 This is our graduation project and our supervisor is
