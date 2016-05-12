@@ -2814,6 +2814,50 @@
             <typeparam name="TSecond">The type of left keys in the dictionary.</typeparam>
             
         </member>
+        <member name="T:Accord.IReadOnlyDictionary`2">
+            <summary>
+              Minimum IReadOnlyDictionary implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.IReadOnlyCollection`1">
+            <summary>
+              Minimum IReadOnlyCollection implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.IReadOnlyDictionary`2.ContainsKey(`0)">
+            <summary>
+              Determines whether the dictionary contains the specified key.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.IReadOnlyDictionary`2.TryGetValue(`0,`1@)">
+            <summary>
+              Tries to get a value.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.IReadOnlyDictionary`2.Keys">
+            <summary>
+              Gets the keys.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.IReadOnlyDictionary`2.Values">
+            <summary>
+              Gets the values.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.IReadOnlyDictionary`2.Item(`0)">
+            <summary>
+              Gets the value associated with the specified key.
+            </summary>
+            
+        </member>
         <member name="M:Accord.Collections.TwoWayDictionary`2.#ctor">
             <summary>
               Initializes a new instance of the <see cref="T:Accord.Collections.TwoWayDictionary`2"/> class
@@ -3049,7 +3093,7 @@
             </summary>
             
         </member>
-        <member name="P:Accord.Collections.TwoWayDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TFirst@TSecond}#Keys">
+        <member name="P:Accord.Collections.TwoWayDictionary`2.Accord#IReadOnlyDictionary{TFirst@TSecond}#Keys">
             <summary>
               Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
             </summary>
@@ -3067,9 +3111,1234 @@
             </summary>
             
         </member>
-        <member name="P:Accord.Collections.TwoWayDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TFirst@TSecond}#Values">
+        <member name="P:Accord.Collections.TwoWayDictionary`2.Accord#IReadOnlyDictionary{TFirst@TSecond}#Values">
             <summary>
               Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.CancellationToken">
+            <summary>
+              Minimum CancellationToken implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.CancellationToken.CanBeCancelled">
+            <summary>
+              Gets or sets a value indicating whether this instance can be cancelled.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.CancellationToken.IsCancellationRequested">
+            <summary>
+              Gets or sets a value indicating whether cancellation has been requested.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.CancellationToken.None">
+            <summary>
+              Gets an empty token.
+            </summary>
+            
+        </member>
+        <member name="T:System.Numerics.Complex">
+            <summary>
+            Complex number wrapper class.
+            </summary>
+            
+            <remarks><para>The class encapsulates complex number and provides
+            set of different operators to manipulate it, like adding, subtraction,
+            multiplication, etc.</para>
+            
+            <para>Sample usage:</para>
+            <code>
+            // define two complex numbers
+            Complex c1 = new Complex( 3, 9 );
+            Complex c2 = new Complex( 8, 3 );
+            // sum
+            Complex s1 = Complex.Add( c1, c2 );
+            Complex s2 = c1 + c2;
+            Complex s3 = c1 + 5;
+            // difference
+            Complex d1 = Complex.Subtract( c1, c2 );
+            Complex d2 = c1 - c2;
+            Complex d3 = c1 - 2;
+            </code>
+            </remarks>
+            
+        </member>
+        <member name="F:System.Numerics.Complex.Real">
+            <summary>
+            Real part of the complex number.
+            </summary>
+        </member>
+        <member name="F:System.Numerics.Complex.Imaginary">
+            <summary>
+            Imaginary part of the complex number.
+            </summary>
+        </member>
+        <member name="F:System.Numerics.Complex.Zero">
+            <summary>
+             A double-precision complex number that represents zero.
+            </summary>
+        </member>
+        <member name="F:System.Numerics.Complex.One">
+            <summary>
+             A double-precision complex number that represents one.
+            </summary>
+        </member>
+        <member name="F:System.Numerics.Complex.I">
+            <summary>
+             A double-precision complex number that represents the squere root of (-1).
+            </summary>
+        </member>
+        <member name="M:System.Numerics.Complex.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Numerics.Complex"/> class.
+            </summary>
+            
+            <param name="re">Real part.</param>
+            <param name="im">Imaginary part.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.#ctor(System.Numerics.Complex)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Numerics.Complex"/> class.
+            </summary>
+            
+            <param name="c">Source complex number.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Add(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Adds two complex numbers.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the sum of specified
+            complex numbers.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Add(System.Numerics.Complex,System.Double)">
+            <summary>
+            Adds scalar value to a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the sum of specified
+            complex number and scalar value.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Add(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex@)">
+            <summary>
+            Adds two complex numbers and puts the result into the third complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Add(System.Numerics.Complex,System.Double,System.Numerics.Complex@)">
+            <summary>
+            Adds scalar value to a complex number and puts the result into another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Subtract(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Subtracts one complex number from another.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance to subtract from.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance to be subtracted.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the subtraction result (<b>a - b</b>).</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Subtract(System.Numerics.Complex,System.Double)">
+            <summary>
+            Subtracts a scalar from a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance to subtract from.</param>
+            <param name="s">A scalar value to be subtracted.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the subtraction result (<b>a - s</b>).</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Subtract(System.Double,System.Numerics.Complex)">
+            <summary>
+            Subtracts a complex number from a scalar value.
+            </summary>
+            
+            <param name="s">A scalar value to subtract from.</param>
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance to be subtracted.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the subtraction result (<b>s - a</b>).</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Subtract(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex@)">
+            <summary>
+            Subtracts one complex number from another and puts the result in the third complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance to subtract from.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance to be subtracted.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Subtract(System.Numerics.Complex,System.Double,System.Numerics.Complex@)">
+            <summary>
+            Subtracts a scalar value from a complex number and puts the result into another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance to subtract from.</param>
+            <param name="s">A scalar value to be subtracted.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Subtract(System.Double,System.Numerics.Complex,System.Numerics.Complex@)">
+            <summary>
+            Subtracts a complex number from a scalar value and puts the result into another complex number.
+            </summary>
+            
+            <param name="s">A scalar value to subtract from.</param>
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance to be subtracted.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Multiply(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Multiplies two complex numbers.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of multiplication.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Multiply(System.Numerics.Complex,System.Double)">
+            <summary>
+            Multiplies a complex number by a scalar value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of multiplication.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Multiply(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex@)">
+            <summary>
+            Multiplies two complex numbers and puts the result in a third complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Multiply(System.Numerics.Complex,System.Double,System.Numerics.Complex@)">
+            <summary>
+            Multiplies a complex number by a scalar value and puts the result into another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Divide(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Divides one complex number by another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result.</returns>
+            
+            <exception cref="T:System.DivideByZeroException">Can not divide by zero.</exception>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Divide(System.Numerics.Complex,System.Double)">
+            <summary>
+            Divides a complex number by a scalar value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result.</returns>
+            
+            <exception cref="T:System.DivideByZeroException">Can not divide by zero.</exception>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Divide(System.Double,System.Numerics.Complex)">
+            <summary>
+            Divides a scalar value by a complex number.
+            </summary>
+            
+            <param name="s">A scalar value.</param>
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result.</returns>
+            
+            <exception cref="T:System.DivideByZeroException">Can not divide by zero.</exception>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Divide(System.Numerics.Complex,System.Numerics.Complex,System.Numerics.Complex@)">
+            <summary>
+            Divides one complex number by another complex number and puts the result in a third complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+            <exception cref="T:System.DivideByZeroException">Can not divide by zero.</exception>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Divide(System.Numerics.Complex,System.Double,System.Numerics.Complex@)">
+            <summary>
+            Divides a complex number by a scalar value and puts the result into another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+            <exception cref="T:System.DivideByZeroException">Can not divide by zero.</exception>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Divide(System.Double,System.Numerics.Complex,System.Numerics.Complex@)">
+            <summary>
+            Divides a scalar value by a complex number and puts the result into another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            <param name="result">A <see cref="T:System.Numerics.Complex"/> instance to hold the result.</param>
+            
+            <exception cref="T:System.DivideByZeroException">Can not divide by zero.</exception>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Negate(System.Numerics.Complex)">
+            <summary>
+            Negates a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the negated values.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.ApproxEqual(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Tests whether two complex numbers are approximately equal using default tolerance value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Return <see langword="true"/> if the two vectors are approximately equal or <see langword="false"/> otherwise.</returns>
+            
+            <remarks><para>The default tolerance value, which is used for the test, equals to 8.8817841970012523233891E-16.</para></remarks>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.ApproxEqual(System.Numerics.Complex,System.Numerics.Complex,System.Double)">
+            <summary>
+            Tests whether two complex numbers are approximately equal given a tolerance value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="tolerance">The tolerance value used to test approximate equality.</param>
+            
+            <remarks><para>The default tolerance value, which is used for the test, equals to 8.8817841970012523233891E-16.</para></remarks>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Parse(System.String)">
+            <summary>
+            Converts the specified string to its <see cref="T:System.Numerics.Complex"/> equivalent.
+            </summary>
+            
+            <param name="s">A string representation of a complex number.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance that represents the complex number
+            specified by the <paramref name="s"/> parameter.</returns>
+            
+            <exception cref="T:System.FormatException">String representation of the complex number is not correctly formatted.</exception>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.TryParse(System.String,System.Numerics.Complex@)">
+            <summary>
+            Try to convert the specified string to its <see cref="T:System.Numerics.Complex"/> equivalent.
+            </summary>
+            
+            <param name="s">A string representation of a complex number.</param>
+            
+            <param name="result"><see cref="T:System.Numerics.Complex"/> instance to output the result to.</param>
+            
+            <returns>Returns boolean value that indicates if the parse was successful or not.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Sqrt(System.Numerics.Complex)">
+            <summary>
+            Calculates square root of a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the square root of the specified
+            complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Log(System.Numerics.Complex)">
+            <summary>
+            Calculates natural (base <b>e</b>) logarithm of a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the natural logarithm of the specified
+            complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Exp(System.Numerics.Complex)">
+            <summary>
+            Calculates exponent (<b>e</b> raised to the specified power) of a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the exponent of the specified
+            complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Sin(System.Numerics.Complex)">
+            <summary>
+            Calculates Sine value of the complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the Sine value of the specified
+            complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Cos(System.Numerics.Complex)">
+            <summary>
+            Calculates Cosine value of the complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the Cosine value of the specified
+            complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Tan(System.Numerics.Complex)">
+            <summary>
+            Calculates Tangent value of the complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the Tangent value of the specified
+            complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.GetHashCode">
+            <summary>
+            Returns the hashcode for this instance.
+            </summary>
+            
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:System.Numerics.Complex.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified object.
+            </summary>
+            
+            <param name="obj">An object to compare to this instance.</param>
+            
+            <returns>Returns <see langword="true"/> if <paramref name="obj"/> is a <see cref="T:System.Numerics.Complex"/> and has the same values as this instance or <see langword="false"/> otherwise.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.ToString">
+            <summary>
+            Returns a string representation of this object.
+            </summary>
+            
+            <returns>A string representation of this object.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Equality(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Tests whether two specified complex numbers are equal.
+            </summary>
+            
+            <param name="u">The left-hand complex number.</param>
+            <param name="v">The right-hand complex number.</param>
+            
+            <returns>Returns <see langword="true"/> if the two complex numbers are equal or <see langword="false"/> otherwise.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Inequality(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Tests whether two specified complex numbers are not equal.
+            </summary>
+            
+            <param name="u">The left-hand complex number.</param>
+            <param name="v">The right-hand complex number.</param>
+            
+            <returns>Returns <see langword="true"/> if the two complex numbers are not equal or <see langword="false"/> otherwise.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_UnaryNegation(System.Numerics.Complex)">
+            <summary>
+            Negates the complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/>  instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the negated values.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Addition(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Adds two complex numbers.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the sum.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Addition(System.Numerics.Complex,System.Double)">
+            <summary>
+            Adds a complex number and a scalar value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the sum.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Addition(System.Double,System.Numerics.Complex)">
+            <summary>
+            Adds a complex number and a scalar value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the sum.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Subtraction(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Subtracts one complex number from another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the difference.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Subtraction(System.Numerics.Complex,System.Double)">
+            <summary>
+            Subtracts a scalar value from a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the difference.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Subtraction(System.Double,System.Numerics.Complex)">
+            <summary>
+            Subtracts a complex number from a scalar value.
+            </summary>
+            
+            <param name="s">A scalar value.</param>
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the difference.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Multiply(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Multiplies two complex numbers.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of multiplication.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Multiply(System.Double,System.Numerics.Complex)">
+            <summary>
+            Multiplies a complex number by a scalar value.
+            </summary>
+            
+            <param name="s">A scalar value.</param>
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of multiplication.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Multiply(System.Numerics.Complex,System.Double)">
+            <summary>
+            Multiplies a complex number by a scalar value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of multiplication.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Division(System.Numerics.Complex,System.Numerics.Complex)">
+            <summary>
+            Divides one complex number by another complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="b">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            
+            <returns>A new Complex instance containing the result.</returns>
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of division.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Division(System.Numerics.Complex,System.Double)">
+            <summary>
+            Divides a complex number by a scalar value.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of division.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Division(System.Double,System.Numerics.Complex)">
+            <summary>
+            Divides a scalar value by a complex number.
+            </summary>
+            
+            <param name="a">A <see cref="T:System.Numerics.Complex"/> instance.</param>
+            <param name="s">A scalar value.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing the result of division.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Explicit(System.Single)~System.Numerics.Complex">
+            <summary>
+            Converts from a single-precision real number to a complex number. 
+            </summary>
+            
+            <param name="value">Single-precision real number to convert to complex number.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing complex number with
+            real part initialized to the specified value.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.op_Explicit(System.Double)~System.Numerics.Complex">
+            <summary>
+            Converts from a double-precision real number to a complex number. 
+            </summary>
+            
+            <param name="value">Double-precision real number to convert to complex number.</param>
+            
+            <returns>Returns new <see cref="T:System.Numerics.Complex"/> instance containing complex number with
+            real part initialized to the specified value.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.System#ICloneable#Clone">
+            <summary>
+            Creates an exact copy of this <see cref="T:System.Numerics.Complex"/> object.
+            </summary>
+            
+            <returns>Returns clone of the complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.Clone">
+            <summary>
+            Creates an exact copy of this <see cref="T:System.Numerics.Complex"/> object.
+            </summary>
+            
+            <returns>Returns clone of the complex number.</returns>
+            
+        </member>
+        <member name="M:System.Numerics.Complex.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with the data needed to serialize the target object.
+            </summary>
+            
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> to populate with data. </param>
+            <param name="context">The destination (see <see cref="T:System.Runtime.Serialization.StreamingContext"/>) for this serialization.</param>
+            
+        </member>
+        <member name="P:System.Numerics.Complex.Magnitude">
+            <summary>
+            Magnitude value of the complex number.
+            </summary>
+            
+            <remarks><para>Magnitude of the complex number, which equals to <b>Sqrt( Re * Re + Im * Im )</b>.</para></remarks>
+            
+        </member>
+        <member name="P:System.Numerics.Complex.Phase">
+            <summary>
+            Phase value of the complex number.
+            </summary>
+            
+            <remarks><para>Phase of the complex number, which equals to <b>Atan( Im / Re )</b>.</para></remarks>
+            
+        </member>
+        <member name="P:System.Numerics.Complex.SquaredMagnitude">
+            <summary>
+            Squared magnitude value of the complex number.
+            </summary>
+        </member>
+        <member name="T:Accord.ConcurrentBag`1">
+            <summary>
+              Minimum Lazy implementation for .NET 3.5 to make
+              Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ConcurrentBag`1.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ConcurrentBag`1"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ConcurrentBag`1.Add(`0)">
+            <summary>
+              Adds the specified item.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ConcurrentBag`1.GetEnumerator">
+            <summary>
+              Gets the enumerator.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ConcurrentBag`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+              Gets the enumerator.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.ConcurrentBag`1.Count">
+            <summary>
+              Counts this instance.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.AggregateException">
+            <summary>
+              Minimum AggregateException implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.AggregateException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.AggregateException"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.AggregateException.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.AggregateException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            
+        </member>
+        <member name="M:Accord.AggregateException.#ctor(System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.AggregateException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+            
+        </member>
+        <member name="M:Accord.AggregateException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Exception})">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.AggregateException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerExceptions">The exceptions that are the cause of the current exception.</param>
+            
+        </member>
+        <member name="M:Accord.AggregateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.AggregateException"/> class.
+            </summary>
+            
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> 
+              that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/>
+              that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+              The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+            
+        </member>
+        <member name="T:Accord.ISet`1">
+            <summary>
+              Minimum ISet implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ISet`1.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ISet`1"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ISet`1.#ctor(System.Collections.Generic.HashSet{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Accord.ISet`1"/> class.
+            </summary>
+            
+            <param name="set">The set.</param>
+            
+        </member>
+        <member name="M:Accord.ISet`1.op_Implicit(System.Collections.Generic.HashSet{`0})~Accord.ISet{`0}">
+            <summary>
+              Performs an implicit conversion from <see cref="T:System.Collections.Generic.HashSet`1"/> to ISet.
+            </summary>
+            
+            <param name="set">The set.</param>
+            
+            <returns>
+              The result of the conversion.
+            </returns>
+            
+        </member>
+        <member name="M:Accord.ISet`1.op_Implicit(Accord.ISet{`0})~System.Collections.Generic.HashSet{`0}">
+            <summary>
+              Performs an implicit conversion from ISet to <see cref="T:System.Collections.Generic.HashSet`1"/>.
+            </summary>
+            
+            <param name="set">The set.</param>
+            
+            <returns>
+              The result of the conversion.
+            </returns>
+            
+        </member>
+        <member name="M:Accord.ISet`1.Add(`0)">
+            <summary>
+              Adds the specified item.
+            </summary>
+            
+            <param name="item">The item.</param>
+            
+        </member>
+        <member name="M:Accord.ISet`1.Clear">
+            <summary>
+              Clears this instance.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ISet`1.Contains(`0)">
+            <summary>
+              Determines whether this instance contains the specified item.
+            </summary>
+            
+            <param name="item">The item.</param>
+            
+            <returns>
+              <c>true</c> if the set contains the specified item; otherwise, <c>false</c>.
+            </returns>
+            
+        </member>
+        <member name="M:Accord.ISet`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the elements of this set to an array.
+            </summary>
+            
+            <param name="array">The array.</param>
+            <param name="arrayIndex">Index of the array.</param>
+            
+        </member>
+        <member name="M:Accord.ISet`1.Remove(`0)">
+            <summary>
+              Removes the specified item.
+            </summary>
+            
+            <param name="item">The item.</param>
+            
+        </member>
+        <member name="M:Accord.ISet`1.GetEnumerator">
+            <summary>
+              Returns an enumerator that iterates through a collection.
+            </summary>
+            
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            
+        </member>
+        <member name="M:Accord.ISet`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+              Returns an enumerator that iterates through a collection.
+            </summary>
+            
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            
+        </member>
+        <member name="M:Accord.ISet`1.SetEquals(Accord.ISet{`0})">
+            <summary>
+              Determines whether this set contains the 
+              exact same elements as another set.
+            </summary>
+            
+            <param name="set">The other set.</param>
+            
+        </member>
+        <member name="P:Accord.ISet`1.Count">
+            <summary>
+              Gets the number of elements in this set.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.ISet`1.IsReadOnly">
+            <summary>
+              Gets a value indicating whether this instance is read only.
+            </summary>
+            
+            <value>
+            	<c>true</c> if this instance is read only; otherwise, <c>false</c>.
+            </value>
+            
+        </member>
+        <member name="T:Accord.Lazy`1">
+            <summary>
+              Minimum Lazy implementation for .NET 3.5 to make
+              Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Lazy`1.#ctor(System.Func{`0})">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.Lazy`1"/> class.
+            </summary>
+            
+            <param name="valueFactory">A function which creates the instance value on first access.</param>
+            
+        </member>
+        <member name="M:Accord.Lazy`1.#ctor(System.Func{`0},System.Boolean)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.Lazy`1"/> class.
+            </summary>
+            
+            <param name="valueFactory">A function which creates the instance value on first access.</param>
+            <param name="isThreadSafe">Needs to be true.</param>
+            
+        </member>
+        <member name="M:Accord.Lazy`1.ToString">
+            <summary>
+              Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            
+            <returns>
+              A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+            
+        </member>
+        <member name="P:Accord.Lazy`1.Value">
+            <summary>
+              Gets the lazily initialized value for this instance.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Lazy`1.IsValueCreated">
+            <summary>
+              Gets a value that indicates whether a value has been created for this Lazy{T} instance.
+            </summary>
+            
+        </member>
+        <member name="T:System.Threading.Tasks.Parallel">
+            <summary>
+              Minimum Parallel Tasks implementation for .NET 3.5 to make
+              Accord.NET work. This is nowhere a functional implementation
+              and exists only to provide compile-time compatibility with
+              previous framework versions.
+            </summary>
+            
+        </member>
+        <member name="M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Threading.Tasks.Parallel.ForLoopBody)">
+            <summary>
+              Parallel for mock-up. The provided
+              code will NOT be run in parallel.
+            </summary>
+            
+        </member>
+        <member name="T:System.Threading.Tasks.Parallel.ForLoopBody">
+            <summary>
+              Loop body delegate.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.SortedSet`1">
+            <summary>
+              Minimum SortedSet implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.SortedSet`1.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.SortedSet`1"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.SortedSet`1.Contains(`0)">
+            <summary>
+              Determines whether the set contains the specified value.
+            </summary>
+            
+            <param name="value">The value.</param>
+            
+            <returns>
+              <c>true</c> if this object contains the specified value; otherwise, <c>false</c>.
+            </returns>
+            
+        </member>
+        <member name="M:Accord.SortedSet`1.Add(`0)">
+            <summary>
+              Adds the specified value.
+            </summary>
+            
+            <param name="value">The value.</param>
+            
+        </member>
+        <member name="M:Accord.SortedSet`1.GetEnumerator">
+            <summary>
+              Gets the enumerator.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.SpinLock">
+            <summary>
+              Minimum SpinLock implementation for .NET 3.5 to make
+              Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.SpinLock.Enter(System.Boolean@)">
+            <summary>
+              Acquires the lock.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.SpinLock.Exit">
+            <summary>
+              Releases the lock.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.SpinLock.IsHeld">
+            <summary>
+              Gets whether the lock is currently held by any thread.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.ThreadLocal`1">
+            <summary>
+              Minimum ThreadLocal implementation for .NET 3.5 to make
+              Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ThreadLocal`1.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ThreadLocal`1"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ThreadLocal`1.#ctor(System.Func{`0})">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ThreadLocal`1"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ThreadLocal`1.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:Accord.ThreadLocal`1"/> is reclaimed by garbage collection.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ThreadLocal`1.Dispose">
+            <summary>
+              Performs application-defined tasks associated with 
+              freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ThreadLocal`1.Dispose(System.Boolean)">
+            <summary>
+              Releases unmanaged and - optionally - managed resources
+            </summary>
+            
+            <param name="disposing"><c>true</c> to release both managed and unmanaged
+              resources; <c>false</c> to release only unmanaged resources.</param>
+            
+        </member>
+        <member name="P:Accord.ThreadLocal`1.Value">
+            <summary>
+              Gets or sets the value.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.Tuple`2">
+            <summary>
+              Minimum Tuple implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Tuple`2.#ctor(`0,`1)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.Tuple`2"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Tuple`2.Equals(System.Object)">
+            <summary>
+              Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.NullReferenceException">
+            The <paramref name="obj"/> parameter is null.
+              </exception>
+        </member>
+        <member name="M:Accord.Tuple`2.GetHashCode">
+            <summary>
+              Returns a hash code for this instance.
+            </summary>
+            
+            <returns>
+              A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+            
+        </member>
+        <member name="P:Accord.Tuple`2.Item1">
+            <summary>
+              Gets or sets the item 1.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Tuple`2.Item2">
+            <summary>
+              Gets or sets the item 2.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.Tuple`3">
+            <summary>
+              Minimum Tuple implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Tuple`3.#ctor(`0,`1,`2)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.Tuple`3"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Tuple`3.Equals(System.Object)">
+            <summary>
+              Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.NullReferenceException">
+            The <paramref name="obj"/> parameter is null.
+              </exception>
+              
+        </member>
+        <member name="M:Accord.Tuple`3.GetHashCode">
+            <summary>
+              Returns a hash code for this instance.
+            </summary>
+            <returns>
+              A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+            
+        </member>
+        <member name="P:Accord.Tuple`3.Item1">
+            <summary>
+              Gets or sets the item 1.
+            </summary>
+        </member>
+        <member name="P:Accord.Tuple`3.Item2">
+            <summary>
+              Gets or sets the item 2.
+            </summary>
+            
+        </member>
+        <member name="P:Accord.Tuple`3.Item3">
+            <summary>
+              Gets or sets the item 3.
+            </summary>
+            
+        </member>
+        <member name="T:Accord.Tuple">
+            <summary>
+              Minimum Tuple implementation for .NET 3.5 to
+              make Accord.NET work. This is not a complete implementation.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Tuple.Create``2(``0,``1)">
+            <summary>
+              Creates the specified tuple.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.Tuple.Create``3(``0,``1,``2)">
+            <summary>
+              Creates the specified tuple.
             </summary>
             
         </member>

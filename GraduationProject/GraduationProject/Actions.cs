@@ -12,12 +12,24 @@ namespace GraduationProject
         private double[][] actionWeights;
         private double[] actionsThresholds;
 
+        private string[] msrDataSetActions;
+
         private Actions()
         {
             actionWeights = new double[GlobalConstant.numberOfActions][];
             actionsThresholds = new double[GlobalConstant.numberOfActions];
             initializeActionWeights();
             initializeActionThresholds();
+        }
+
+        public void initializeMSRDatasetActionsArray()
+        {
+            msrDataSetActions = new string[]{ "high arm wave", "horizontal arm wave", "hammer", "hand catch", "forward punch", "high throw", "draw x", "draw tick", "draw circle", "hand clap", "two hand wave", "side - boxing", "bend", "forward kick", "side kick", "jogging", "tennis swing", "tennis serve", "golf swing", "pickup & throw"};
+        }
+
+        public string getActionName(int actionId)
+        {
+            return msrDataSetActions[actionId];
         }
 
         private void initializeActionThresholds()

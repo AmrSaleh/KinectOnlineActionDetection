@@ -25,7 +25,7 @@ namespace GraduationProject
         private static Dictionary<int, int> jointsIdsMap;
 
         //get from file boolean
-        private static bool FROM_FILE = true;
+        private static bool FROM_FILE = false;
 
         // Perform MSCR-12 Mapping or not
         private static bool DO_MAPPING = false;
@@ -39,6 +39,9 @@ namespace GraduationProject
             GlobalConstant.initializeConstants("init.txt");
             onlineDetector = OnlineDetector.getInstance();
 
+            Actions actions = Actions.getInstance();
+            actions.initializeMSRDatasetActionsArray();
+
             if (FROM_FILE)
             {
                 Console.WriteLine("\nWorking from file. Pls w8, This will take a bit to run.");
@@ -47,7 +50,7 @@ namespace GraduationProject
             } else
             {
                 connectKinect();
-                Console.WriteLine("Kinect Connected!, Press any key to continue");
+                Console.WriteLine("Kinect Connected!");
                 Console.ReadLine();
                 closeKinectConnections();
             }
@@ -186,7 +189,7 @@ namespace GraduationProject
             int actionLabel = onlineDetector.addFrameAndCheckAction(newFrame);
 
             if (actionLabel != -1)
-                Console.WriteLine("Action Detected: " + actionLabel);
+                Console.WriteLine("Action Detected: " + actionLabel+", "+Actions.getInstance().getActionName(actionLabel));
 
             framesCount++;
         }
