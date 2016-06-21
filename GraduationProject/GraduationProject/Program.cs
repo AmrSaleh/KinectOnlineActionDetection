@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 using Microsoft.Kinect;
 using MathNet.Numerics.LinearAlgebra;
 using System.IO;
+using System.Net.Sockets;
 
 
 namespace GraduationProject
 {
     class Program
-    { 
-        private static int framesCount = 0; 
+    {
+        private static bool connectWithUnity;
+
+        private static int framesCount = 0;
 
         // Active Kinect sensor
         private static KinectSensor sensor;
@@ -30,12 +33,28 @@ namespace GraduationProject
         // Perform MSCR-12 Mapping or not
         private static bool DO_MAPPING = false;
 
-      
         private static ArrayList seqFrameAnnotation = new ArrayList();
         private static ArrayList detectedLabels = new ArrayList();
 
+        private static AsynchronousClient asyncClientSocket;
+
+        private static System.IO.StreamWriter file = new System.IO.StreamWriter("Test_Gestures.txt");
+
+        private static int framesLimiter = 0;
+        private static int FRAMES_COUNTER_LIMIT = 2;
+
         static void Main(string[] args)
         {
+            connectWithUnity = true;
+            asyncClientSocket = new AsynchronousClient();
+
+            if (connectWithUnity)
+            {
+                Console.WriteLine("Connecting with Unity.");
+                while (!asyncClientSocket.canOpenSocketAndConnect()) ;
+                Console.WriteLine("Connection Opened With Unity.");
+            }
+
             GlobalConstant.initializeConstants("init.txt");
             onlineDetector = OnlineDetector.getInstance();
 
@@ -45,9 +64,10 @@ namespace GraduationProject
             if (FROM_FILE)
             {
                 Console.WriteLine("\nWorking from file. Pls w8, This will take a bit to run.");
-                 setJointsIdsMap();
-                 loadFromFile();
-            } else
+                setJointsIdsMap();
+                loadFromFile();
+            }
+            else
             {
                 connectKinect();
                 Console.WriteLine("Kinect Connected!");
@@ -137,7 +157,7 @@ namespace GraduationProject
             }
         }
 
- 
+
 
         private static void SensorSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
@@ -165,15 +185,16 @@ namespace GraduationProject
 
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
-                        
+
                         addFrameAndCheckAction(skeletonNo, skel);
-                        
+                        checkMovementGestures(skeletonNo, skel);
+
                     }
 
                 }
 
             }
-            
+
         }
 
 
@@ -182,14 +203,19 @@ namespace GraduationProject
             We assume that there is only one player
         */
 
-        private static void addFrameAndCheckAction(int skeletonNo, Skeleton skeleton) {
+        private static void addFrameAndCheckAction(int skeletonNo, Skeleton skeleton)
+        {
 
             Frame newFrame = new Frame(skeleton, framesCount);
 
             int actionLabel = onlineDetector.addFrameAndCheckAction(newFrame);
 
             if (actionLabel != -1)
-                Console.WriteLine("Action Detected: " + actionLabel+", "+Actions.getInstance().getActionName(actionLabel));
+            {
+                if(connectWithUnity)
+                    asyncClientSocket.sendData(Actions.getInstance().get3bytesID(actionLabel));
+                Console.WriteLine("Action Detected: " + actionLabel + ", " + Actions.getInstance().getActionName(actionLabel));
+            }
 
             framesCount++;
         }
@@ -207,13 +233,14 @@ namespace GraduationProject
                 detectedLabels.Add(actionLabel);
             }
             seqFrameAnnotation.Add(actionLabel);
-                
+
 
             framesCount++;
         }
 
 
-        private static void loadFromFile() {
+        private static void loadFromFile()
+        {
 
             int jointNo = 0;
 
@@ -262,7 +289,8 @@ namespace GraduationProject
 
         }
 
-        private static float[,] reOrder(float[,] skeleton) {
+        private static float[,] reOrder(float[,] skeleton)
+        {
             float[,] result = new float[20, 3];
 
             for (int i = 0; i < 20; i++)
@@ -314,5 +342,35 @@ namespace GraduationProject
         }
 
 
+        private static String checkMovementGestures(int skeletonNo, Skeleton skeleton) {
+
+
+            float xDiff, yDiff, zDiff;
+
+            xDiff = skeleton.Joints[JointType.HipCenter].Position.X - skeleton.Joints[JointType.ShoulderCenter].Position.X;
+            yDiff = skeleton.Joints[JointType.HipCenter].Position.Y - skeleton.Joints[JointType.ShoulderCenter].Position.Y;
+            zDiff = skeleton.Joints[JointType.HipCenter].Position.Z - skeleton.Joints[JointType.ShoulderCenter].Position.Z;
+
+            String line = xDiff + ", " + yDiff + ", " + zDiff;
+
+
+            if (framesLimiter == 0) { 
+                file.WriteLine(line);
+                Console.WriteLine(line);
+            }
+            else if (framesLimiter == FRAMES_COUNTER_LIMIT)
+                framesLimiter = 0;
+            else
+                framesLimiter++;
+
+            return line;
+
+        }
+
     }
+
+
+
+
+
 }

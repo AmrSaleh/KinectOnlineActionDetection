@@ -13,6 +13,7 @@ namespace GraduationProject
         private double[] actionsThresholds;
 
         private string[] msrDataSetActions;
+        private string[] actionID3bytes;
 
         private Actions()
         {
@@ -20,16 +21,28 @@ namespace GraduationProject
             actionsThresholds = new double[GlobalConstant.numberOfActions];
             initializeActionWeights();
             initializeActionThresholds();
+            initializeActionID3bytesArray();
         }
 
         public void initializeMSRDatasetActionsArray()
         {
-            msrDataSetActions = new string[]{ "high arm wave", "horizontal arm wave", "hammer", "hand catch", "forward punch", "high throw", "draw x", "draw tick", "draw circle", "hand clap", "two hand wave", "side - boxing", "bend", "forward kick", "side kick", "jogging", "tennis swing", "tennis serve", "golf swing", "pickup & throw"};
+            msrDataSetActions = new string[] { "high arm wave", "horizontal arm wave", "hammer", "hand catch", "forward punch", "high throw", "draw x", "draw tick", "draw circle", "hand clap", "two hand wave", "side - boxing", "bend", "forward kick", "side kick", "jogging", "tennis swing", "tennis serve", "golf swing", "pickup & throw" };
         }
 
         public string getActionName(int actionId)
         {
             return msrDataSetActions[actionId];
+        }
+
+        public void initializeActionID3bytesArray()
+        {
+            actionID3bytes = new string[] { "00", "01", "02", "03", "04", "05", "06", "07", "08",
+                "09", "10", "11", "12","13","14","15","16","17","18","19"};
+        }
+
+        public string get3bytesID(int actionId)
+        {
+            return actionID3bytes[actionId];
         }
 
         private void initializeActionThresholds()
@@ -78,7 +91,7 @@ namespace GraduationProject
         private double calculateFrameScore(int actionNumber, int[] matchingClustersIndices)
         {
             double calculatedScore = 0;
-            
+
             for (int i = 1; i <= GlobalConstant.numberOfBins; i++)
             {
                 calculatedScore = calculatedScore + (actionWeights[actionNumber][matchingClustersIndices[i - 1]] / i);
