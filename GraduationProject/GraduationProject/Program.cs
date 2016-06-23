@@ -17,7 +17,7 @@ namespace GraduationProject
 {
     class Program
     {
-        private static bool connectWithUnity = false;
+        private static bool connectWithUnity;
 
         private static int framesCount = 0;
 
@@ -62,6 +62,8 @@ namespace GraduationProject
 
             Actions actions = Actions.getInstance();
             actions.initializeMSRDatasetActionsArray();
+
+            connectWithUnity = true;
 
             asyncClientSocket = new AsynchronousClient();
             if (connectWithUnity)
@@ -144,7 +146,7 @@ namespace GraduationProject
         }
 
 
-
+        /* Kinect call this function on frame ready */
         private static void SensorSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
 
