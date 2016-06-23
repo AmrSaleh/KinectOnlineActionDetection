@@ -7,19 +7,28 @@ using System.Threading.Tasks;
 using Microsoft.Kinect;
 using MathNet.Numerics.LinearAlgebra;
 using System.IO;
+using System.Net.Sockets;
+
+
+
 
 
 namespace GraduationProject
 {
     class Program
-    { 
-        private static int framesCount = 0; 
+    {
+        private static bool connectWithUnity = false;
+
+        private static int framesCount = 0;
 
         // Active Kinect sensor
         private static KinectSensor sensor;
 
         // Get instance of the online detector
         private static OnlineDetector onlineDetector;
+
+        //Get instance of the gestures detector
+        private static GesturesDetector gesturesDetector;
 
         // Joints IDs map
         private static Dictionary<int, int> jointsIdsMap;
@@ -30,24 +39,46 @@ namespace GraduationProject
         // Perform MSCR-12 Mapping or not
         private static bool DO_MAPPING = false;
 
-      
         private static ArrayList seqFrameAnnotation = new ArrayList();
         private static ArrayList detectedLabels = new ArrayList();
 
+        private static AsynchronousClient asyncClientSocket;
+
+        private static System.IO.StreamWriter file = new System.IO.StreamWriter("Test_Gestures.txt");
+
+        private static int gesturesFramesCounter = 0;
+
+        private static int framesLimiter = 0;
+        private static int FRAMES_COUNTER_LIMIT = 2;
+
         static void Main(string[] args)
         {
+
             GlobalConstant.initializeConstants("init.txt");
+
             onlineDetector = OnlineDetector.getInstance();
+
+            gesturesDetector = GesturesDetector.getInstance();
 
             Actions actions = Actions.getInstance();
             actions.initializeMSRDatasetActionsArray();
 
+            asyncClientSocket = new AsynchronousClient();
+            if (connectWithUnity)
+            {
+                Console.WriteLine("Connecting with Unity.");
+                while (!asyncClientSocket.canOpenSocketAndConnect()) ;
+                initializeGameState();
+                Console.WriteLine("Connection Opened With Unity.");
+            }
+
             if (FROM_FILE)
             {
                 Console.WriteLine("\nWorking from file. Pls w8, This will take a bit to run.");
-                 setJointsIdsMap();
-                 loadFromFile();
-            } else
+                setJointsIdsMap();
+                loadFromFile();
+            }
+            else
             {
                 connectKinect();
                 Console.WriteLine("Kinect Connected!");
@@ -55,31 +86,6 @@ namespace GraduationProject
                 closeKinectConnections();
             }
 
-            using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter("seqFrameAnnotation.txt"))
-            {
-                String line;
-                for (int i = 0; i < seqFrameAnnotation.Count; i++)
-                {
-                    line = seqFrameAnnotation[i] + "";
-                    file.WriteLine(line);
-                }
-
-
-            }
-
-            using (System.IO.StreamWriter file =
-           new System.IO.StreamWriter("detectedLabels.txt"))
-            {
-                String line;
-                for (int i = 0; i < detectedLabels.Count; i++)
-                {
-                    line = detectedLabels[i] + "";
-                    file.WriteLine(line);
-                }
-
-
-            }
 
             Console.WriteLine("\nProgram Fininshed, Press any key to exit.");
             Console.ReadLine();
@@ -137,7 +143,7 @@ namespace GraduationProject
             }
         }
 
- 
+
 
         private static void SensorSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
@@ -165,15 +171,16 @@ namespace GraduationProject
 
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
-                        
+
                         addFrameAndCheckAction(skeletonNo, skel);
-                        
+                        checkMovementGestures(skeletonNo, skel);
+
                     }
 
                 }
 
             }
-            
+
         }
 
 
@@ -182,14 +189,19 @@ namespace GraduationProject
             We assume that there is only one player
         */
 
-        private static void addFrameAndCheckAction(int skeletonNo, Skeleton skeleton) {
+        private static void addFrameAndCheckAction(int skeletonNo, Skeleton skeleton)
+        {
 
             Frame newFrame = new Frame(skeleton, framesCount);
 
             int actionLabel = onlineDetector.addFrameAndCheckAction(newFrame);
 
             if (actionLabel != -1)
-                Console.WriteLine("Action Detected: " + actionLabel+", "+Actions.getInstance().getActionName(actionLabel));
+            {
+                if (connectWithUnity)
+                    asyncClientSocket.sendData(Actions.getInstance().get2bytesID(actionLabel));
+                Console.WriteLine("Action Detected: " + actionLabel + ", " + Actions.getInstance().getActionName(actionLabel));
+            }
 
             framesCount++;
         }
@@ -207,13 +219,32 @@ namespace GraduationProject
                 detectedLabels.Add(actionLabel);
             }
             seqFrameAnnotation.Add(actionLabel);
-                
+
 
             framesCount++;
         }
 
+        private static void checkMovementGestures(int skeletonNo, Skeleton skeleton)
+        {
 
-        private static void loadFromFile() {
+            int previousMovingState = gesturesDetector.currentMovingState;
+            int currentMovingState = gesturesDetector.checkGesture(skeleton);
+
+            if (currentMovingState != previousMovingState)
+            {
+
+                if (connectWithUnity)
+                    asyncClientSocket.sendData(Actions.getInstance().get2bytesID(currentMovingState));
+
+                Console.WriteLine("Gesture Detected Detected: " + currentMovingState + ", " + Actions.getInstance().getActionName(currentMovingState));
+
+            }
+
+            //prinfDiffForGesture(skeleton);
+        }
+
+        private static void loadFromFile()
+        {
 
             int jointNo = 0;
 
@@ -262,7 +293,8 @@ namespace GraduationProject
 
         }
 
-        private static float[,] reOrder(float[,] skeleton) {
+        private static float[,] reOrder(float[,] skeleton)
+        {
             float[,] result = new float[20, 3];
 
             for (int i = 0; i < 20; i++)
@@ -283,7 +315,6 @@ namespace GraduationProject
 
         private static void setJointsIdsMap()
         {
-
             jointsIdsMap = new Dictionary<int, int>();
 
             int id = 0;
@@ -309,10 +340,52 @@ namespace GraduationProject
             jointsIdsMap.Add(id++, 16);
             jointsIdsMap.Add(id++, 18);
 
+        }
 
+
+        private static void checkMovementGestures(int skeletonNo, Skeleton skeleton) {
+
+            int previousMovingState = gesturesDetector.currentMovingState;
+            int currentMovingState = gesturesDetector.checkGesture(skeleton);
+
+            if (currentMovingState != previousMovingState){
+
+                if (connectWithUnity)
+                    asyncClientSocket.sendData(Actions.getInstance().get2bytesID(currentMovingState));
+
+                    Console.WriteLine("Gesture Detected Detected: " + currentMovingState + ", " + Actions.getInstance().getActionName(currentMovingState));
+              
+            }
+            
+            //prinfDiffForGesture(skeleton);
+        }
+
+        private static void prinfDiffForGesture(Skeleton skeleton) {
+
+            float xDiff, yDiff, zDiff;
+
+            xDiff = skeleton.Joints[JointType.HipCenter].Position.X - skeleton.Joints[JointType.ShoulderCenter].Position.X;
+            yDiff = skeleton.Joints[JointType.HipCenter].Position.Y - skeleton.Joints[JointType.ShoulderCenter].Position.Y;
+            zDiff = skeleton.Joints[JointType.HipCenter].Position.Z - skeleton.Joints[JointType.ShoulderCenter].Position.Z;
+
+            String line = xDiff + ", " + yDiff + ", " + zDiff;
+
+            if (framesLimiter == 0) { 
+                file.WriteLine(line);
+                Console.WriteLine(line);
+            }
+            else if (framesLimiter == FRAMES_COUNTER_LIMIT)
+                framesLimiter = 0;
+            else
+                framesLimiter++;   
 
         }
 
+
+        private static void initializeGameState() {
+            asyncClientSocket.sendData(Actions.getInstance().get2bytesID(gesturesDetector.IDLE_ID));
+            Console.WriteLine("Gesture Detected Detected: " + gesturesDetector.IDLE_ID + ", " + Actions.getInstance().getActionName(gesturesDetector.IDLE_ID));
+        }
 
     }
 }

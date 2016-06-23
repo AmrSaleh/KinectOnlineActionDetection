@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,12 @@ namespace GraduationProject
         public static string actionWeightsFilePath;
         public static string actionThresholdsFilePath;
         public static string coodbookFilePath;
+        public static float FRONT_GESTURE_THRESHOLD = 0.08f;
+        public static float BACK_GESTURE_THRESHOLD = -0.09f;
+        public static float RIGHT_GESTURE_THRESHOLD = -0.07f;
+        public static float LEFT_GESTURE_THRESHOLD = 0.08f;
+        public static float HANDLEFTY_SPINEY_MADDIFFERENCE = 0.2f;
+        public static float SHOULDERLEFTY_ELBOWLEFTY_MAXDIFFERENCE = 0.1f;
 
         // final variables
         public static readonly int jointsCount = 20;
@@ -95,6 +102,37 @@ namespace GraduationProject
             coodbookFilePath = splittedLine[1];
 
 
+            // read FRONT_GESTURE_THRESHOLD
+            line = file.ReadLine();
+            splittedLine = line.Split(',');
+            FRONT_GESTURE_THRESHOLD = float.Parse(splittedLine[1], CultureInfo.InvariantCulture.NumberFormat);
+
+            // read BACK_GESTURE_THRESHOLD
+            line = file.ReadLine();
+            splittedLine = line.Split(',');
+            BACK_GESTURE_THRESHOLD = float.Parse(splittedLine[1], CultureInfo.InvariantCulture.NumberFormat);
+
+            // read RIGHT_GESTURE_THRESHOLD,-
+            line = file.ReadLine();
+            splittedLine = line.Split(',');
+            RIGHT_GESTURE_THRESHOLD = float.Parse(splittedLine[1], CultureInfo.InvariantCulture.NumberFormat);
+
+            // read LEFT_GESTURE_THRESHOLD
+            line = file.ReadLine();
+            splittedLine = line.Split(',');
+            LEFT_GESTURE_THRESHOLD = float.Parse(splittedLine[1], CultureInfo.InvariantCulture.NumberFormat);
+
+            // read HANDLEFTY_SPINEY_MADDIFFERENCE
+            line = file.ReadLine();
+            splittedLine = line.Split(',');
+            HANDLEFTY_SPINEY_MADDIFFERENCE = float.Parse(splittedLine[1], CultureInfo.InvariantCulture.NumberFormat);
+
+            
+             // read SHOULDERLEFTY_ELBOWLEFTY_MAXDIFFERENCE
+            line = file.ReadLine();
+            splittedLine = line.Split(',');
+            SHOULDERLEFTY_ELBOWLEFTY_MAXDIFFERENCE = float.Parse(splittedLine[1], CultureInfo.InvariantCulture.NumberFormat);
+            
             file.Close();
         }
     }

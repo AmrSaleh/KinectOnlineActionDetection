@@ -9,3 +9,10 @@ minimum detection length,10
 Weights of actions file path,actions_classifier_weights.txt
 Thresholds if actions,thresholds.txt
 Code book path,CodeBook.txt
+FRONT_GESTURE_THRESHOLD,0.08
+BACK_GESTURE_THRESHOLD,-0.09
+RIGHT_GESTURE_THRESHOLD,-0.07
+LEFT_GESTURE_THRESHOLD,0.08
+HANDLEFTY_SPINEY_MADDIFFERENCE,0.2
+SHOULDERLEFTY_ELBOWLEFTY_MAXDIFFERENCE,0.1
+

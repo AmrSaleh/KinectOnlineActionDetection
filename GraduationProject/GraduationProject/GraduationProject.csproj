@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GraduationProject</RootNamespace>
     <AssemblyName>GraduationProject</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
@@ -29,6 +29,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,23 +52,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accord, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\GraduationProject\packages\Accord.3.0.2\lib\net35\Accord.dll</HintPath>
+      <HintPath>..\packages\Accord.3.0.2\lib\net45\Accord.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Accord.MachineLearning, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\GraduationProject\packages\Accord.MachineLearning.3.0.2\lib\net45\Accord.MachineLearning.dll</HintPath>
+      <HintPath>..\packages\Accord.MachineLearning.3.0.2\lib\net45\Accord.MachineLearning.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Accord.Math, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\GraduationProject\packages\Accord.Math.3.0.2\lib\net45\Accord.Math.dll</HintPath>
+      <HintPath>..\packages\Accord.Math.3.0.2\lib\net45\Accord.Math.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Accord.Statistics, Version=3.0.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\GraduationProject\packages\Accord.Statistics.3.0.2\lib\net45\Accord.Statistics.dll</HintPath>
+      <HintPath>..\packages\Accord.Statistics.3.0.2\lib\net45\Accord.Statistics.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MathNet.Numerics">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\MathNet.Numerics.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Descriptor\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Kinect, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -85,8 +86,11 @@
   <ItemGroup>
     <Compile Include="ActionDetector.cs" />
     <Compile Include="Actions.cs" />
+    <Compile Include="ActionType.cs" />
     <Compile Include="Angles.cs" />
+    <Compile Include="AyscClientSocket.cs" />
     <Compile Include="DescriptorBuffer.cs" />
+    <Compile Include="GesturesDetector.cs" />
     <Compile Include="GlobalConstant.cs" />
     <Compile Include="Descriptor.cs" />
     <Compile Include="Frame.cs" />
