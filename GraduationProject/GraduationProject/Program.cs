@@ -343,23 +343,6 @@ namespace GraduationProject
         }
 
 
-        private static void checkMovementGestures(int skeletonNo, Skeleton skeleton) {
-
-            int previousMovingState = gesturesDetector.currentMovingState;
-            int currentMovingState = gesturesDetector.checkGesture(skeleton);
-
-            if (currentMovingState != previousMovingState){
-
-                if (connectWithUnity)
-                    asyncClientSocket.sendData(Actions.getInstance().get2bytesID(currentMovingState));
-
-                    Console.WriteLine("Gesture Detected Detected: " + currentMovingState + ", " + Actions.getInstance().getActionName(currentMovingState));
-              
-            }
-            
-            //prinfDiffForGesture(skeleton);
-        }
-
         private static void prinfDiffForGesture(Skeleton skeleton) {
 
             float xDiff, yDiff, zDiff;

@@ -59,6 +59,9 @@ namespace GraduationProject
             actionsMap.Add(gestureDetector.BACK_RIGHT_GESTURE_ID, "Back Right Gesture");
             actionsMap.Add(gestureDetector.BACK_LEFT_GESTURE_ID, "Back Left Gesture");
             actionsMap.Add(gestureDetector.IDLE_ID, "Idle");
+            actionsMap.Add(gestureDetector.IDLE_Defending_ID, "Defending");
+
+
 
         }
 
