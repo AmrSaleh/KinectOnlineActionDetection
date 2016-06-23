@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GraduationProject</RootNamespace>
     <AssemblyName>GraduationProject</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
@@ -29,6 +29,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -85,9 +86,11 @@
   <ItemGroup>
     <Compile Include="ActionDetector.cs" />
     <Compile Include="Actions.cs" />
+    <Compile Include="ActionType.cs" />
     <Compile Include="Angles.cs" />
     <Compile Include="AyscClientSocket.cs" />
     <Compile Include="DescriptorBuffer.cs" />
+    <Compile Include="GesturesDetector.cs" />
     <Compile Include="GlobalConstant.cs" />
     <Compile Include="Descriptor.cs" />
     <Compile Include="Frame.cs" />

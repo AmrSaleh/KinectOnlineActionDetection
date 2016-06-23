@@ -49,7 +49,7 @@ public class AsynchronousClient
         receiveDone.WaitOne();
 
         // Write the response to the console.
-        Console.WriteLine("Response received : {0}", response);
+       // Console.WriteLine("Response received : {0}", response);
     }
 
     public void closeSocket()
@@ -125,7 +125,7 @@ public class AsynchronousClient
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+           // Console.WriteLine(e.ToString());
         }
     }
 
@@ -191,7 +191,7 @@ public class AsynchronousClient
 
             // Complete sending the data to the remote device.
             int bytesSent = client.EndSend(ar);
-            Console.WriteLine("Sent {0} bytes to server.", bytesSent);
+           // Console.WriteLine("Sent {0} bytes to server.", bytesSent);
 
             // Signal that all bytes have been sent.
             sendDone.Set();
@@ -199,11 +199,11 @@ public class AsynchronousClient
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+            //Console.WriteLine(e.ToString());
         }
     }
 
-   /* public static int Main(String[] args)
+    private void test()
     {
         AsynchronousClient asyncClient = new AsynchronousClient();
         if (asyncClient.canOpenSocketAndConnect())
@@ -225,9 +225,6 @@ public class AsynchronousClient
             // receiveData();
             //asyncClient.closeSocket();
         }
-
-        while (true) ;
-        return 0;
     }
-    */
+
 }
