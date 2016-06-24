@@ -17,7 +17,7 @@ namespace GraduationProject
 {
     class Program
     {
-        private static bool connectWithUnity = false;
+        private static bool connectWithUnity;
 
         private static int framesCount = 0;
 
@@ -62,6 +62,8 @@ namespace GraduationProject
 
             Actions actions = Actions.getInstance();
             actions.initializeMSRDatasetActionsArray();
+
+            connectWithUnity = true;
 
             asyncClientSocket = new AsynchronousClient();
             if (connectWithUnity)
@@ -144,7 +146,7 @@ namespace GraduationProject
         }
 
 
-
+        /* Kinect call this function on frame ready */
         private static void SensorSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
 
@@ -343,7 +345,8 @@ namespace GraduationProject
         }
 
 
-        private static void prinfDiffForGesture(Skeleton skeleton) {
+        private static void prinfDiffForGesture(Skeleton skeleton)
+        {
 
             float xDiff, yDiff, zDiff;
 
@@ -353,19 +356,21 @@ namespace GraduationProject
 
             String line = xDiff + ", " + yDiff + ", " + zDiff;
 
-            if (framesLimiter == 0) { 
+            if (framesLimiter == 0)
+            {
                 file.WriteLine(line);
                 Console.WriteLine(line);
             }
             else if (framesLimiter == FRAMES_COUNTER_LIMIT)
                 framesLimiter = 0;
             else
-                framesLimiter++;   
+                framesLimiter++;
 
         }
 
 
-        private static void initializeGameState() {
+        private static void initializeGameState()
+        {
             asyncClientSocket.sendData(Actions.getInstance().get2bytesID(gesturesDetector.IDLE_ID));
             Console.WriteLine("Gesture Detected Detected: " + gesturesDetector.IDLE_ID + ", " + Actions.getInstance().getActionName(gesturesDetector.IDLE_ID));
         }
