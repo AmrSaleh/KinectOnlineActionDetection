@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GraduationProject.Angles">
+    <Position X="14" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAABEAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Angles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraduationProject.Descriptor">
+    <Position X="12" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Descriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraduationProject.DescriptorBuffer">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAAAIAAAAAAAEIAACAAAEAAAAAAAAAQQAAAFEACA=</HashCode>
+      <FileName>DescriptorBuffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraduationProject.Frame">
+    <Position X="14" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEEQAACAQABQABgAAAYEIIABCgBQAEAIAAAAAAA=</HashCode>
+      <FileName>Frame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="descriptor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GraduationProject.FrameBuffer">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIIAAgQAAAAAACAAAgAAEAAABAAAAEAAA=</HashCode>
+      <FileName>FrameBuffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraduationProject.GesturesDetector">
+    <Position X="12" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAQAkAAgAAAAAAAQgAAAAAAEgAAAQBBAAABCCQJAU=</HashCode>
+      <FileName>GesturesDetector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="gesturesDetector" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GraduationProject.GlobalConstant">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAIQBAAAAAAAgAAQAQgABCACAAAAAARgBIYQAACQRAA=</HashCode>
+      <FileName>GlobalConstant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraduationProject.KnnManager">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABAAAAAAAAAAACAAAAAAAgAAQAAAAAgAAAAAA=</HashCode>
+      <FileName>KnnManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="knnManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GraduationProject.OnlineDetector">
+    <Position X="3.25" Y="7" Width="1.5" />
+    <AssociationLine Name="actionDetector" Type="GraduationProject.ActionDetector" ManuallyRouted="true">
+      <Path>
+        <Point X="4.75" Y="7.97" />
+        <Point X="5.306" Y="7.97" />
+        <Point X="5.306" Y="2.816" />
+        <Point X="5.75" Y="2.816" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAABAAAgQAAQAAAAQAAAAAAAAAAEA=</HashCode>
+      <FileName>OnlineDetector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="actionDetector" />
+      <Field Name="descriptorBuffer" />
+      <Field Name="onlineDetector" />
+      <Field Name="scoreBuffer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GraduationProject.Program">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <AssociationLine Name="onlineDetector" Type="GraduationProject.OnlineDetector" ManuallyRouted="true">
+      <Path>
+        <Point X="10" Y="5.465" />
+        <Point X="6.583" Y="5.465" Type="JumpStart" />
+        <Point X="6.417" Y="5.465" Type="JumpEnd" />
+        <Point X="5.389" Y="5.465" Type="JumpStart" />
+        <Point X="5.222" Y="5.465" Type="JumpEnd" />
+        <Point X="4.999" Y="5.465" />
+        <Point X="4.999" Y="6.06" />
+        <Point X="4.305" Y="6.06" />
+        <Point X="4.305" Y="7" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABACAAKAAAABAAAgAgAAQwABhgAEAQBCgQBAgQAIA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="gesturesDetector" />
+      <Field Name="onlineDetector" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GraduationProject.ScoreBuffer">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAIAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScoreBuffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraduationProject.Actions">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAEBCAIAAAAEAAAAAAQABQAAAAAAAQAAAo=</HashCode>
+      <FileName>Actions.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="actions" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GraduationProject.ActionDetector">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEJgAAAAAAiCgAABAABAAAEAQABAQAAIAAAAABgYA=</HashCode>
+      <FileName>ActionDetector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="actionDetector" />
+      <Field Name="actions" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StateObject">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACCAEAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>AyscClientSocket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsynchronousClient">
+    <Position X="8" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAiEEAAAAAAACAAEAAAAAAAABCAAg4AAAABAIgAAE=</HashCode>
+      <FileName>AyscClientSocket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActionType">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAEAAAAAAAAEAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ActionType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
